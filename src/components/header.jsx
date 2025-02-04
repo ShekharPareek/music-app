@@ -1,6 +1,19 @@
 import React from "react";
+import { useState } from "react";
+
+import Login from "./login";
 
 function Homepage() {
+
+  const [click,setclick] = useState(false);
+ 
+ function handleLoginClick (){
+  console.log("click ho gya")
+  setclick(!click);
+ }
+
+  
+
     return (
     <>
    
@@ -39,7 +52,10 @@ function Homepage() {
           ⬇ <span className="hover:text-gray-300 hover:transition-colors cursor-pointer">Install App</span>
         </span>
         <span>Sign up</span>
-        <button className="bg-white text-black px-8 py-4 rounded-full cursor-pointer font-bold">Log in</button>
+        {click ? <Login /> : false}
+        <button onClick={handleLoginClick} className="bg-white text-black px-8 py-4 rounded-full cursor-pointer font-bold">Log in</button>
+        <div>
+        </div>
       </div>
     </header>
     </>
